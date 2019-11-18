@@ -4,7 +4,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-//instancia multer
+//instancia multer - middle de video
 var multer = require('multer');
 //salva o video em pasta local, limita o tamanho maximo de video aceito, limita a quantidade de uploads pra 1
 var upload = multer({ dest:'./public/uploads/', limits: {fileSize: 1000000000000, files:1} });
@@ -34,7 +34,7 @@ mongoose.connection.on('error', function() {
 	console.error('MongoDB error');
 });
 
-//configuracao passport
+//configuracao passport - middleware de autenticação
 require('./server/config/passport')(passport);
 
 app.use(logger('dev'));

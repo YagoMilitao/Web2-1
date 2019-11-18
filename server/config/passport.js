@@ -1,3 +1,5 @@
+//configuracao passport - middleware de autenticação
+
 var LocalStrategy    = require('passport-local').Strategy;
 var User = require('../models/users');
 
@@ -17,9 +19,12 @@ module.exports = function(passport) {
         passwordField : 'password',
         passReqToCallback : true
     },
-    function(req, email, password, done) { //verifica se o usuario existe no login, se existe verifica se a senha esta correta
+
+    //verifica se o usuario existe no login, se existe verifica se a senha esta correta
+    function(req, email, password, done) {
         if (email)
         email = email.toLowerCase();
+
         process.nextTick(function() {
             User.findOne({ 'local.email' :  email }, function(err, user) {
                 if (err)
@@ -39,9 +44,12 @@ module.exports = function(passport) {
         passwordField : 'password',
         passReqToCallback : true
     },
-    function(req, email, password, done) { //verifica unicidade de email no registro
+
+   //verifica unicidade de email no registro
+    function(req, email, password, done) {
         if (email)
         email = email.toLowerCase();
+
         process.nextTick(function() {
             if (!req.user) {
                 User.findOne({ 'local.email' :  email }, function(err, user) {

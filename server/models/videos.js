@@ -2,20 +2,24 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var videosSchema = mongoose.Schema({
-    created: { //informacoes do upload do video
+    //informacoes do upload do video
+    created: {
         type: Date,
         default: Date.now
     },
-    title: { //nome que o usuario escolhe pro video
+    //nome que o usuario escolhe pro video
+    title: {
         type: String,
         default: '',
         trim: true,
         required: 'Title cannot be blank'
     },
-    videoName: { //nome original do video
+    //nome original do video
+    videoName: {
         type: String
     },
-    user: { //usuario que subiu o video
+    //usuario que subiu o video
+    user: {
         type: Schema.ObjectId,
         ref: 'User'
     }
