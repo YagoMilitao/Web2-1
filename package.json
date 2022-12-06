@@ -22,7 +22,7 @@
     "ejs": "^2.6.1",
     "export": "^0.1.337",
     "exports": "0.0.1",
-    "express": "~4.13.1",
+    "express": "~4.17.3",
     "express-session": "^1.13.0",
     "gravatar": "^1.4.0",
     "module": "^1.2.5",
